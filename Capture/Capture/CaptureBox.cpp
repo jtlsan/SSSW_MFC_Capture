@@ -31,6 +31,7 @@ BEGIN_MESSAGE_MAP(CCaptureBox, CDialogEx)
 	ON_COMMAND(ID_CAPTURE, &CCaptureBox::OnCapture)
 	ON_WM_KEYDOWN()
 //	ON_COMMAND(ID_CAPTUREBOX, &CCaptureBox::OnCapturebox)
+//ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 
@@ -66,7 +67,7 @@ BOOL CCaptureBox::OnInitDialog()
 	*/
 	//SetWindowLong(this->GetSafeHwnd(), GWL_EXSTYLE, GetWindowLong(this->GetSafeHwnd(), GWL_EXSTYLE) | WS_EX_LAYERED);
 
-	return TRUE;  // return TRUE unless you set the focus to a control
+	return FALSE;  // return TRUE unless you set the focus to a control
 				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
 }
 
@@ -142,4 +143,15 @@ BOOL CCaptureBox::PreTranslateMessage(MSG* pMsg)
 //
 //	dc.BitBlt(0, 0, rect.Width(), rect.Height(), &memDC, rect.left, rect.top, SRCCOPY);
 //
+//}
+
+
+//int CCaptureBox::OnCreate(LPCREATESTRUCT lpCreateStruct)
+//{
+//	if (CDialogEx::OnCreate(lpCreateStruct) == -1)
+//		return -1;
+//
+//	// TODO:  여기에 특수화된 작성 코드를 추가합니다.
+//
+//	return 0;
 //}

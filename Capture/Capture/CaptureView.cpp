@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CCaptureView, CView)
 //	ON_WM_MOVE()
 //	ON_WM_SIZE()
 ON_COMMAND(ID_CAPTURE, &CCaptureView::OnCapture)
+ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 // CCaptureView 생성/소멸
@@ -183,7 +184,6 @@ int CCaptureView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_dlgCapture.Create(IDD_DIALOG_CAPTURE, this);
 	m_dlgCapture.ShowWindow(SW_SHOW);
 
-
 	//투명화 작업중
 
 	return 0;
@@ -221,4 +221,20 @@ void CCaptureView::OnCapture()
 {
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	m_dlgCapture.OnCapture();
+}
+
+
+void CCaptureView::OnPaint()
+{
+	CPaintDC dc(this); // device context for painting
+					   // TODO: 여기에 메시지 처리기 코드를 추가합니다.
+					   // 그리기 메시지에 대해서는 CView::OnPaint()을(를) 호출하지 마십시오.
+	CRect wndRect;
+	SystemParametersInfo(SPI_GETWORKAREA, NULL, &wndRect, NULL);
+	int nShow = this->ShowWindow(SW_SHOW);
+	int nWidth = wndRect.right - wndRect.left;
+	int nHeight = wndRect.bottom - wndRect.top;
+
+	nShow = this->SetWindowPos(&wndTopMost, (wndRect.right - nWidth), (wndRect.bottom - nHeight), 0, 0, SWP_NOSIZE);
+
 }

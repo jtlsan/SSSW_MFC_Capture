@@ -29,4 +29,5 @@ public:
 	HACCEL m_hAccel;
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 //	afx_msg void OnCapturebox();
+//	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 };

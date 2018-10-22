@@ -62,9 +62,6 @@
     <ClCompile Include="CaptureView.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CaputreBox.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="CaptureBox.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>

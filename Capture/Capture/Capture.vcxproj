@@ -204,7 +204,6 @@
     <ClCompile Include="CaptureBox.cpp" />
     <ClCompile Include="CaptureDoc.cpp" />
     <ClCompile Include="CaptureView.cpp" />
-    <ClCompile Include="CaputreBox.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
