@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "CaptureBox.h"
 
 
 class CCaptureView : public CView
@@ -43,6 +44,7 @@ protected:
 public:
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	CCaptureBox m_dlgCapture;
 };
 
 #ifndef _DEBUG  // CaptureView.cpp의 디버그 버전

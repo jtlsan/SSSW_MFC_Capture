@@ -11,6 +11,8 @@
 
 #include "CaptureDoc.h"
 #include "CaptureView.h"
+#include "MainFrm.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -46,6 +48,9 @@ BOOL CCaptureView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
 	//  Window 클래스 또는 스타일을 수정합니다.
+
+	//투명화
+	
 
 	return CView::PreCreateWindow(cs);
 }
@@ -156,7 +161,7 @@ void CCaptureView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	CBitmap *pOldBitmap = memDC.SelectObject(&bitmap);
 	memDC.StretchBlt(0, 0, cx2, cy2, &ScreenDC, 0, 0, cx2, cy2, SRCCOPY);
 
-	dc.BitBlt(0, 0, rect.Width(), rect.Height(), &memDC, rect.left, rect.top, SRCCOPY);	//0, 0 을 sx, sy로 고침
+	dc.BitBlt(0, 0, rect.Width(), rect.Height(), &memDC, rect.left, rect.top, SRCCOPY);	
 
 	memDC.SelectObject(pOldBitmap);
 	
@@ -171,10 +176,11 @@ int CCaptureView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  여기에 특수화된 작성 코드를 추가합니다.
-	bool bResult = false;
+	m_dlgCapture.Create(IDD_DIALOG_CAPTURE, this);
+	m_dlgCapture.ShowWindow(SW_SHOW);
+
+
 	//투명화 작업중
-	SetWindowLong(, GWL_EXSTYLE, GetWindowLong(this->GetSafeHwnd(), GWL_EXSTYLE) | WS_EX_LAYERED);
-	SetLayeredWindowAttributes(RGB(255, 255, 255), 0, LWA_COLORKEY);
 
 	return 0;
 }
