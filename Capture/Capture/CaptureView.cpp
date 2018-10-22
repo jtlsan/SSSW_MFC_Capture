@@ -30,6 +30,10 @@ BEGIN_MESSAGE_MAP(CCaptureView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
 	ON_WM_LBUTTONDBLCLK()
 	ON_WM_CREATE()
+	ON_WM_ERASEBKGND()
+//	ON_WM_MOVE()
+//	ON_WM_SIZE()
+ON_COMMAND(ID_CAPTURE, &CCaptureView::OnCapture)
 END_MESSAGE_MAP()
 
 // CCaptureView 생성/소멸
@@ -115,8 +119,7 @@ void CCaptureView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
 
-	CDC memDC;
-	CBitmap bitmap;
+	
 
 	/*
 	CWnd* pWndDesktop = GetDesktopWindow();
@@ -143,7 +146,8 @@ void CCaptureView::OnLButtonDblClk(UINT nFlags, CPoint point)
 	*/
 
 
-
+	CDC memDC;
+	CBitmap bitmap;
 
 	
 	int cx2, cy2;
@@ -183,4 +187,38 @@ int CCaptureView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	//투명화 작업중
 
 	return 0;
+}
+
+
+BOOL CCaptureView::OnEraseBkgnd(CDC* pDC)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	return false;
+	//return CView::OnEraseBkgnd(pDC);
+}
+
+
+//void CCaptureView::OnMove(int x, int y)
+//{
+//	CView::OnMove(x, y);
+//
+//	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+//
+//	RepaintView();
+//}
+
+
+//void CCaptureView::OnSize(UINT nType, int cx, int cy)
+//{
+//	CView::OnSize(nType, cx, cy);
+//
+//	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+//	RepaintView();
+//}
+
+
+void CCaptureView::OnCapture()
+{
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+	m_dlgCapture.OnCapture();
 }

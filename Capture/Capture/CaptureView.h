@@ -45,6 +45,10 @@ public:
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	CCaptureBox m_dlgCapture;
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+//	afx_msg void OnMove(int x, int y);
+//	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnCapture();
 };
 
 #ifndef _DEBUG  // CaptureView.cpp의 디버그 버전

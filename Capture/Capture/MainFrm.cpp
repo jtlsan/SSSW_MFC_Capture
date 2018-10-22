@@ -21,6 +21,8 @@ const UINT uiLastUserToolBarId = uiFirstUserToolBarId + iMaxUserToolbars - 1;
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+//	ON_WM_SIZE()
+//	ON_WM_MOVE()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -75,7 +77,8 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
-	//  Window 클래스 또는 스타일을 수정합니다.
+	   //  Window 클래스 또는 스타일을 수정합니다.
+
 
 	return TRUE;
 }
@@ -97,3 +100,46 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame 메시지 처리기
 
+
+
+
+//void CMainFrame::RepaintView()
+//{
+//	CView* pView = GetActiveView();
+//	if (pView)
+//	{
+//		ShowWindow(SW_HIDE);
+//		HDC hDC = ::GetDC(NULL);
+//		if (hDC)
+//		{
+//			CRect Rect;
+//			pView->GetClientRect(Rect);
+//			pView->ClientToScreen(Rect);
+//
+//			CClientDC DC(pView);
+//
+//,.			::BitBlt(DC.m_hDC, 0, 0, Rect.Width(), Rect.Height(), hDC, Rect.left, Rect.top, SRCCOPY);
+//
+//			::ReleaseDC(NULL, hDC);
+//		}
+//		ShowWindow(SW_SHOW);
+//	}
+//}
+
+
+//void CMainFrame::OnSize(UINT nType, int cx, int cy)
+//{
+//	CFrameWnd::OnSize(nType, cx, cy);
+//
+//	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+//	RepaintView();
+//}
+
+
+//void CMainFrame::OnMove(int x, int y)
+//{
+//	CFrameWnd::OnMove(x, y);
+//
+//	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+//	RepaintView();
+//}

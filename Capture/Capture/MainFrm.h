@@ -38,6 +38,10 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
 
+public:
+//	void RepaintView();
+//	afx_msg void OnSize(UINT nType, int cx, int cy);
+//	afx_msg void OnMove(int x, int y);
 };
 
 

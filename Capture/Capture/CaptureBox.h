@@ -3,6 +3,8 @@
 
 // CCaptureBox 대화 상자입니다.
 
+
+
 class CCaptureBox : public CDialogEx
 {
 	DECLARE_DYNAMIC(CCaptureBox)
@@ -22,4 +24,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
+	afx_msg void OnCapture();
+	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+	HACCEL m_hAccel;
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+//	afx_msg void OnCapturebox();
 };
