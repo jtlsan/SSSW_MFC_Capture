@@ -229,12 +229,4 @@ void CCaptureView::OnPaint()
 	CPaintDC dc(this); // device context for painting
 					   // TODO: 여기에 메시지 처리기 코드를 추가합니다.
 					   // 그리기 메시지에 대해서는 CView::OnPaint()을(를) 호출하지 마십시오.
-	CRect wndRect;
-	SystemParametersInfo(SPI_GETWORKAREA, NULL, &wndRect, NULL);
-	int nShow = this->ShowWindow(SW_SHOW);
-	int nWidth = wndRect.right - wndRect.left;
-	int nHeight = wndRect.bottom - wndRect.top;
-
-	nShow = this->SetWindowPos(&wndTopMost, (wndRect.right - nWidth), (wndRect.bottom - nHeight), 0, 0, SWP_NOSIZE);
-
 }
