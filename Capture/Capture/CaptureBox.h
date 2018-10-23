@@ -20,8 +20,8 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
-	DECLARE_MESSAGE_MAP()
 
+	DECLARE_MESSAGE_MAP()
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnCapture();
@@ -30,5 +30,4 @@ public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 //	afx_msg void OnCapturebox();
 //	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnHotKey(UINT nHotKeyId, UINT nKey1, UINT nKey2);
 };
