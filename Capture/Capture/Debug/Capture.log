@@ -1,1 +1,9 @@
-﻿
+﻿  stdafx.cpp
+  MainFrm.cpp
+  CaptureView.cpp
+  CaptureDoc.cpp
+  CaptureBox.cpp
+  Capture.cpp
+  코드를 생성하고 있습니다...
+  Capture.vcxproj -> C:\Users\임인호\Documents\Visual Studio 2015\Capture\Capture\Debug\Capture.exe
+  Capture.vcxproj -> C:\Users\임인호\Documents\Visual Studio 2015\Capture\Capture\Debug\Capture.pdb (Full PDB)
