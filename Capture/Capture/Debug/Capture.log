@@ -1,3 +1,9 @@
-﻿  CaptureBox.cpp
-  Capture.vcxproj -> C:\dev\Project\Capture_mfc\SSSW_MFC_Capture\Capture\Debug\Capture.exe
-  Capture.vcxproj -> C:\dev\Project\Capture_mfc\SSSW_MFC_Capture\Capture\Debug\Capture.pdb (Full PDB)
+﻿  stdafx.cpp
+  MainFrm.cpp
+  CaptureView.cpp
+  CaptureDoc.cpp
+  CaptureBox.cpp
+  Capture.cpp
+  코드를 생성하고 있습니다...
+  Capture.vcxproj -> C:\dev\Project\Capture_mfc\Capture\Capture\Debug\Capture.exe
+  Capture.vcxproj -> C:\dev\Project\Capture_mfc\Capture\Capture\Debug\Capture.pdb (Full PDB)

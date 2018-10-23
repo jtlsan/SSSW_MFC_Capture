@@ -32,6 +32,7 @@ BEGIN_MESSAGE_MAP(CCaptureBox, CDialogEx)
 	ON_WM_KEYDOWN()
 //	ON_COMMAND(ID_CAPTUREBOX, &CCaptureBox::OnCapturebox)
 //ON_WM_CREATE()
+ON_WM_HOTKEY()
 END_MESSAGE_MAP()
 
 
@@ -57,6 +58,11 @@ BOOL CCaptureBox::OnInitDialog()
 	SetLayeredWindowAttributes(cr, byAlpha, LWA_COLORKEY);
 
 	m_hAccel = ::LoadAccelerators(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME));
+
+	// 포커스 없을 때 Ctrl + Q 캡쳐 단축키 등록 시작
+	if (!::RegisterHotKey(GetSafeHwnd(), ID_CAPTURE, MOD_CONTROL, 'Q'))
+		AfxMessageBox(_T("핫키 등록 실패!"));
+	// 포커스 없을 때 Ctrl + Q 캡쳐 단축키 등록 끝
 
 	/*
 	LONG ExtendedStyle = GetWindowLong(GetSafeHwnd(), GWL_EXSTYLE);
@@ -112,7 +118,7 @@ void CCaptureBox::OnCapture()
 void CCaptureBox::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-
+	
 	CDialogEx::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
@@ -163,3 +169,14 @@ BOOL CCaptureBox::PreTranslateMessage(MSG* pMsg)
 //
 //	return 0;
 //}
+
+// 포커스 없을 때 Ctrl + Q 캡쳐 단축키 처리 함수 시작
+void CCaptureBox::OnHotKey(UINT nHotKeyId, UINT nKey1, UINT nKey2) 
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	if (nHotKeyId == ID_CAPTURE) {
+		OnCapture();
+	}
+	CDialogEx::OnHotKey(nHotKeyId, nKey1, nKey2);
+}
+// 포커스 없을 때 Ctrl + Q 캡쳐 단축키 처리 함수 끝
