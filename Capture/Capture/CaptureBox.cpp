@@ -77,7 +77,7 @@ void CCaptureBox::OnCapture()
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 	CDC memDC;
 	CBitmap bitmap;
-	CImage imgae;
+	CImage image;
 
 	int cx2, cy2;
 	CRect rect;
@@ -94,7 +94,15 @@ void CCaptureBox::OnCapture()
 	CBitmap *pOldBitmap = memDC.SelectObject(&bitmap);
 	memDC.StretchBlt(0, 0, cx2, cy2, &ScreenDC, 0, 0, cx2, cy2, SRCCOPY);
 
+	//image생성시도
+	image.Create(rect.Width() - 15, rect.Height() - 38, memDC.GetDeviceCaps(BITSPIXEL));
+	CDC* pDC = dc.FromHandle(image.GetDC());
+
 	dc.BitBlt(-8, -31, rect.Width(), rect.Height(), &memDC, rect.left, rect.top, SRCCOPY);
+	pDC->BitBlt(-8, -31, rect.Width()-2, rect.Height()-2, &memDC, rect.left, rect.top, SRCCOPY);
+	image.ReleaseDC();
+
+	image.Save(TEXT("test2.jpg"), Gdiplus::ImageFormatJPEG);
 
 	memDC.SelectObject(pOldBitmap);
 
